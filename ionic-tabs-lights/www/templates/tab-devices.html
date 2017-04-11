@@ -1,0 +1,64 @@
+<ion-view view-title="Devices">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-plus-outline" ng-click="openModal()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon" 
+                ng-click="toggleDelete()"
+                ng-class="{'ion-ios-minus do-delete': delete, 'ion-ios-minus-outline': !delete}"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="item-borderless card" ng-repeat="device in devices">
+            <div ng-hide="device.id == editID" ng-click="startEdit(device)">
+                <div class="device-header item item-divider row">
+                    <div class="left col col-66">{{device.name}}</div>
+                    <div class="right col col-33">{{device.type | deviceTypeFtr}}</div>
+                </div>
+                <div class="item item-text-wrap">
+                    <p><b>ID:</b> {{device.id + 'x' + device.pin}}</p>
+                    <p ng-show="device.group"><b>Group:</b> {{device.group}}</p>
+                </div>
+            </div>
+            <div ng-show="device.id == editID">
+                <form name="insetDeviceForm" ng-submit="insetDeviceForm.$valid && submitDevice()" 
+                        novalidate>
+                    <div class="item item-divider">
+                        <label class="item item-input"
+                                ng-class="{'form-error' : insetDeviceForm.name.$invalid && insetDeviceForm.$submitted}">
+                            <input name="name" placeholder="Device Name" type="text"
+                                    ng-model="subDevice.name" required>
+                        </label>
+                    </div>
+                    <br />
+                    <p>
+                        <label class="item item-input">
+                            <input name="id" placeholder="Device ID" type="text"
+                                    ng-model="subDevice.id" ng-readonly="edit" required>
+                        </label>
+                    </p>
+                    <p>
+                        <label class="item item-input"
+                                ng-class="{'form-error' : insetDeviceForm.group.$invalid && insetDeviceForm.$submitted}">
+                            <input name="group" type="text" placeholder="Device Group (Optional)"
+                                    ng-model="subDevice.group">
+                        </label>
+                    </p>
+                    <p>
+                        <label class="item item-input item-select">
+                            <span class="form-control input-label">Type</span>
+                            <select name="type" ng-model="subDevice.type"
+                                    ng-options="type.id as type.name for type in deviceTypes"></select>
+                        </label>
+                    </p>
+
+                    <div class="device-editor row padding">
+                        <button type="button" class="cancel-button button button-clear button-positive
+                        icon ion-close col col-25" ng-click="cancelEdit()"></button>
+                        <button type="submit" class="submit-button button button-clear button-positive
+                        icon ion-checkmark col col-offset-50"></button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </ion-content>
+</ion-view>

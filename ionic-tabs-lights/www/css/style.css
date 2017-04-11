@@ -1,0 +1,42 @@
+﻿/* Empty. Add your own CSS if you like */
+
+.device-editor .cancel-button {
+    text-align: left;
+}
+
+.device-editor .submit-button {
+    text-align: right;
+}
+
+.form-error {
+    background-color: #ff9999;
+}
+
+label.item.item-input.item-select.form-error > select {
+    background-color: #ff9999;
+}
+
+.bar-stable .do-delete {
+    color: red;
+}
+
+.bar-stable .do-delete:hover {
+    color: red;
+}
+
+.device-header .right {
+    text-align: right;
+    font-weight: normal;
+}
+
+ion-content.main {
+    background-color: gainsboro;
+}
+
+.keyboard-open .tabs {
+    display: none;
+}
+
+.keyboard-open .has-tabs{
+ bottom:0;
+ }

@@ -1,0 +1,19 @@
+<ion-view view-title="Dashboard">
+    <ion-nav-buttons side="primary">
+        <button class="button button-icon icon ion-ios-reload" ng-click="checkIfDevicesActive(true)"></button>
+    </ion-nav-buttons>
+    <ion-content class="main">
+        <div class="card" ng-repeat="group in groups">
+            <div class="item item-divider">{{group}}</div>
+            <div class="padding">
+                <button ng-repeat="device in devices | groupFtr: group"
+                        class="button button-block button-outline button-positive icon-left"
+                        ng-class="{'ion-ios-circle-filled': device.type == 1, 'ion-ios-toggle': device.type == 0}"
+                        ng-disabled="isInactive(device.id)"
+                        ng-click="triggerDevice(device)">
+                    {{device.name}}
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

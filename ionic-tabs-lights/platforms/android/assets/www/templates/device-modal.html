@@ -1,0 +1,35 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">{{modalTitle}}</h1>
+        <button class="button button-clear button-primary button-positive" 
+                ng-click="closeModal()">Cancel</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <form name="deviceForm" ng-submit="deviceForm.$valid && submitDevice(deviceForm)" novalidate>
+            <div class="list">
+                <label class="item item-input"
+                       ng-class="{'form-error' : deviceForm.name.$invalid && deviceForm.$submitted}">
+                    <input name="name" placeholder="Device Name" type="text" ng-model="subDevice.name" required>
+                </label>
+                <label class="item item-input"
+                       ng-class="{'form-error' : deviceForm.id.$invalid && deviceForm.$submitted}">
+                    <input name="id" placeholder="Device ID" type="text" ng-model="subDevice.id" required
+                           ng-pattern="IDregex">
+                </label>
+                <label class="item item-input"
+                       ng-class="{'form-error' : deviceForm.group.$invalid && deviceForm.$submitted}">
+                    <input name="group" placeholder="Device Group (Optional)" type="text" ng-model="subDevice.group">
+                </label>
+                <label class="item item-input item-select" 
+                       ng-class="{'form-error' : deviceForm.type.$invalid && deviceForm.$submitted}">
+                    <span class="input-label">Device Type</span>
+                    <select name="type" ng-model="subDevice.type" 
+                            ng-class="{'form-error' : deviceForm.type.$invalid && deviceForm.$submitted}"
+                            ng-options="type.id as type.name for type in deviceTypes" required>
+                    </select>
+                </label>
+            </div>
+            <button type="submit" class="button button-block button-outline button-positive">Submit</button>
+        </form>
+    </ion-content>
+</ion-modal-view>
