@@ -4,3 +4,5 @@ They are meant to work together to allow the client application to control an I/
 
 ## Configuration
 See the README in the ionic-tabs-lights directory to learn how to set up the project to run locally on your development machine, or compile it as an application on your Android or iOS device.  
+
+Also see [this guide](https://ionicframework.com/getting-started/) on the Ionic website to get started.
