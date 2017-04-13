@@ -6,10 +6,11 @@ They are meant to work together to allow the client application to control an I/
 See the README in the ionic-tabs-lights directory to learn how to set up the project to run locally on your development machine, or compile it as an application on your Android or iOS device.  
 
 Also see [this guide](https://ionicframework.com/getting-started/) on the Ionic website to get started.
-
-'// Unique ID to identify the device for cloud.arest.io
+'''
+// Unique ID to identify the device for cloud.arest.io
 char* device_id = "m8e4r5";
 
 // WiFi parameters
 const char* ssid = "slow internet :(";
-const char* password = "loldidntread";'
+const char* password = "loldidntread";
+'''
