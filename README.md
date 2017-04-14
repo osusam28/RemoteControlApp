@@ -17,5 +17,7 @@ const char* ssid = "slow internet :(";
 const char* password = "loldidntread";
 ```
 Change the device_id to whatever you would like to identify that device by.  It must be 6 characters long and contain only lowercase letters and numbers.  
-Change the ssid and password variables to your local Wifi connection's SSID and network password. 
-Upload the code to your arduino device. To connect to the device on the client application, use the device_id you defined, plus x#, where # is the pin number of the pin you would like to control (e.g. skh3w4x12 would be for a device_id of skh3w4 and control pin 12, while ms3wn3x3 would be for device_id ms3wn3 and pin 3). 
+
+Change the ssid and password variables to your local Wifi connection's SSID and network password and upload the code to your arduino device. 
+
+To connect to the device on the client application, use the device_id you defined, plus x#, where # is the pin number of the pin you would like to control on the device (e.g. skh3w4x12 would be for a device_id of skh3w4 and control pin 12, while ms3wn3x3 would be for device_id ms3wn3 and pin 3). 
